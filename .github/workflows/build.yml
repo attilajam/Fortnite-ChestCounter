@@ -26,3 +26,19 @@ jobs:
         with:
           files: dist/ChestCounter.exe
           body_path: RELEASE_NOTES.md
+  build-rust:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Build
+        run: cargo build --release --manifest-path rust/Cargo.toml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ChestCounter-rust
+          path: rust/target/release/chest-counter.exe
+      - name: Attach to the release (tags only)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: rust/target/release/chest-counter.exe
