@@ -7,3 +7,8 @@ dist-*/
 *.replay
 # debug dumps of the parser (ParseMode.Debug)
 cmds/
+
+# Rust build output
+/rust/target/
+/rust-mvp/target/
+/rs/target/

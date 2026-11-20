@@ -1,0 +1,17 @@
+[package]
+name = "chest-counter"
+version = "1.5.1"
+edition = "2024"
+description = "Rust rewrite of Fortnite-ChestCounter with Windows GUI, native overlay, and exact report parity"
+
+[dependencies]
+aes = "0.8"
+base64 = "0.22"
+chrono = { version = "0.4", features = ["serde"] }
+notify = "8"
+oozextract = "0.5"
+regex = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+tao = "0.34"
+wry = "0.53"
